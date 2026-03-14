@@ -4,29 +4,44 @@
     <meta charset="UTF-8">
     <title>Portal de Segurança Digital</title>
     <style>
-        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; }
-        .card { background: #2d2d2d; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); max-width: 600px; margin: auto; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; }
-        .forte { color: #00ff00; font-weight: bold; }
-        .fraca { color: #ff4444; font-weight: bold; }
-        h1, h3 { color: #00d4ff; }
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; margin-top: 60px; }
+        
+        /* Menu de Navegação */
+        nav { background: #333; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; text-align: center; border-bottom: 2px solid #00d4ff; z-index: 1000; }
+        nav a { color: #00d4ff; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 14px; }
+        nav a:hover { text-decoration: underline; }
+
+        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 650px; margin: 20px auto; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        .forte { color: #00ff00; font-weight: bold; background: rgba(0,255,0,0.1); padding: 5px; border-radius: 4px; }
+        .fraca { color: #ff4444; font-weight: bold; background: rgba(255,0,0,0.1); padding: 5px; border-radius: 4px; }
+        h1, h2, h3 { color: #00d4ff; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
+
+    <nav>
+        <a href="#teste">TESTE DE SENHA</a>
+        <a href="#dicas">DICAS DE SEGURANÇA</a>
+    </nav>
+
     <div class="card">
         <h1>Proteção Digital: Família e Amigos</h1>
-        <p>Projeto de Cyber Defense para conscientização online.</p>
+        <p>Este portal foi criado para ajudar você a se proteger de golpes online e entender riscos digitais.</p>
         
-        <h3>1. Teste a Força da sua Senha</h3>
-        <p><small>Atenção: Não use sua senha real, use uma similar para teste.</small></p>
-        <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
+        <h3 id="teste">1. Teste a Força da sua Senha</h3>
+        <p>Descubra se sua senha é fácil de ser descoberta por hackers. <br>
+        <small>Dica: Nunca use sua senha real em sites de teste.</small></p>
+        <input type="password" id="senha" placeholder="Digite uma senha similar à sua" oninput="verificar()">
         <p id="resultado"></p>
 
-        <h3>2. Dicas contra Engenharia Social</h3>
+        <h3 id="dicas">2. Dicas contra Engenharia Social</h3>
+        <p>A Engenharia Social é quando um golpista tenta te enganar para conseguir dados. Proteja-se:</p>
         <ul>
-            <li><strong>MFA:</strong> Ative a verificação em duas etapas em tudo.</li>
-            <li><strong>Links:</strong> Mensagens urgentes no WhatsApp geralmente são golpes.</li>
-            <li><strong>Redes Sociais:</strong> Nunca poste fotos de documentos ou crachás de trabalho.</li>
+            <li><strong>Verificação em Duas Etapas (MFA):</strong> Ative no WhatsApp e Instagram. É a sua maior defesa.</li>
+            <li><strong>Cuidado com a Urgência:</strong> Se alguém te pedir dinheiro ou dados "urgente" pelo celular, pare e ligue para a pessoa.</li>
+            <li><strong>Discrição nas Redes:</strong> Não poste fotos que mostrem onde você trabalha ou documentos pessoais.</li>
         </ul>
     </div>
 
@@ -34,16 +49,16 @@
         function verificar() {
             let s = document.getElementById('senha').value;
             let res = document.getElementById('resultado');
-            let temNumero = /[0-9]/.test(s);
-            let temLetra = /[a-zA-Z]/.test(s);
-            let temSimbolo = /[^A-Za-z0-9]/.test(s);
+            let temNum = /[0-9]/.test(s);
+            let temLet = /[a-zA-Z]/.test(s);
+            let temSim = /[^A-Za-z0-9]/.test(s);
 
             if (s.length === 0) { res.innerHTML = ""; }
-            else if (s.length > 10 && temNumero && temLetra && temSimbolo) {
-                res.innerHTML = "Senha Forte! ✅";
+            else if (s.length >= 10 && temNum && temLet && temSim) {
+                res.innerHTML = "Senha Forte! ✅ Sua conta está mais segura.";
                 res.className = "forte";
             } else {
-                res.innerHTML = "Senha Fraca! Use 10+ caracteres com números e símbolos. ❌";
+                res.innerHTML = "Senha Fraca! ❌ Tente usar mais de 10 letras, números e símbolos (ex: @, #, $).";
                 res.className = "fraca";
             }
         }
