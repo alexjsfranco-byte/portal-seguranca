@@ -1,0 +1,42 @@
+index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal de Conscientização Digital</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; line-height: 1.6; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+        .seguro { color: green; font-weight: bold; } .fraco { color: red; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Proteção Digital: Família e Amigos</h1>
+        <p>Desenvolvido para ajudar na sua segurança online como parte do meu projeto de Cyber Defense.</p>
+        
+        <h3>1. Teste a Força da sua Senha</h3>
+        <p><small>Atenção: Não use sua senha real, use uma similar para teste.</small></p>
+        <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
+        <p id="resultado"></p>
+
+        <h3>2. Dicas Práticas de Segurança</h3>
+        <ul>
+            <li><strong>MFA:</strong> Ative a verificação em duas etapas em tudo.</li>
+            <li><strong>Links:</strong> Se recebeu algo urgente ou bom demais no WhatsApp, é golpe.</li>
+            <li><strong>Senhas:</strong> Não repita a mesma senha do banco no Instagram.</li>
+        </ul>
+    </div>
+
+    <script>
+        function verificar() {
+            let s = document.getElementById('senha').value;
+            let res = document.getElementById('resultado');
+            if(s.length === 0) { res.innerHTML = ""; }
+            else if(s.length > 10) { res.innerHTML = "Senha Forte! ✅"; res.className = "seguro"; }
+            else { res.innerHTML = "Senha Fraca! Use mais de 10 caracteres. ❌"; res.className = "fraco"; }
+        }
+    </script>
+</body>
+</html>
