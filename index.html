@@ -4,44 +4,75 @@
     <meta charset="UTF-8">
     <title>Portal de Segurança Digital</title>
     <style>
-        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; margin-top: 60px; }
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; margin-top: 80px; }
         
         /* Menu de Navegação */
-        nav { background: #333; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; text-align: center; border-bottom: 2px solid #00d4ff; z-index: 1000; }
-        nav a { color: #00d4ff; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 14px; }
-        nav a:hover { text-decoration: underline; }
+        nav { background: #333; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; text-align: center; border-bottom: 2px solid #00d4ff; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav a { color: #00d4ff; text-decoration: none; margin: 5px 10px; font-weight: bold; font-size: 12px; text-transform: uppercase; }
+        nav a:hover { color: #fff; }
 
-        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 650px; margin: 20px auto; }
+        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 700px; margin: 20px auto; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
         .forte { color: #00ff00; font-weight: bold; background: rgba(0,255,0,0.1); padding: 5px; border-radius: 4px; }
         .fraca { color: #ff4444; font-weight: bold; background: rgba(255,0,0,0.1); padding: 5px; border-radius: 4px; }
-        h1, h2, h3 { color: #00d4ff; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        h1, h2, h3 { color: #00d4ff; border-bottom: 1px solid #444; padding-bottom: 10px; margin-top: 30px; }
         li { margin-bottom: 10px; }
+        .alerta { color: #ffcc00; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#teste">TESTE DE SENHA</a>
-        <a href="#dicas">DICAS DE SEGURANÇA</a>
+        <a href="#teste">Senhas</a>
+        <a href="#dicas">Engenharia Social</a>
+        <a href="#phishing">Phishing</a>
+        <a href="#jogos">Jogos Online</a>
+        <a href="#criancas">Crianças</a>
+        <a href="#dados">Rastros</a>
     </nav>
 
     <div class="card">
         <h1>Proteção Digital: Família e Amigos</h1>
-        <p>Este portal foi criado para ajudar você a se proteger de golpes online e entender riscos digitais.</p>
+        <p>Portal de conscientização criado para proteger quem você ama contra ameaças cibernéticas.</p>
         
         <h3 id="teste">1. Teste a Força da sua Senha</h3>
-        <p>Descubra se sua senha é fácil de ser descoberta por hackers. <br>
-        <small>Dica: Nunca use sua senha real em sites de teste.</small></p>
-        <input type="password" id="senha" placeholder="Digite uma senha similar à sua" oninput="verificar()">
+        <p>Verifique a complexidade da sua senha abaixo. <br>
+        <small class="alerta">Atenção: Use uma senha parecida, nunca a sua senha real.</small></p>
+        <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
         <p id="resultado"></p>
 
         <h3 id="dicas">2. Dicas contra Engenharia Social</h3>
-        <p>A Engenharia Social é quando um golpista tenta te enganar para conseguir dados. Proteja-se:</p>
         <ul>
-            <li><strong>Verificação em Duas Etapas (MFA):</strong> Ative no WhatsApp e Instagram. É a sua maior defesa.</li>
-            <li><strong>Cuidado com a Urgência:</strong> Se alguém te pedir dinheiro ou dados "urgente" pelo celular, pare e ligue para a pessoa.</li>
-            <li><strong>Discrição nas Redes:</strong> Não poste fotos que mostrem onde você trabalha ou documentos pessoais.</li>
+            <li><strong>MFA (Dois Fatores):</strong> Ative no WhatsApp e redes sociais.</li>
+            <li><strong>Desconfie da Urgência:</strong> Golpistas pedem dinheiro rápido fingindo ser parentes.</li>
+        </ul>
+
+        <h3 id="phishing">3. Phishing: O Golpe do Link Falso</h3>
+        <p>Como não ser enganado por sites fakes:</p>
+        <ul>
+            <li><strong>Verifique o Link:</strong> Se o banco é `banco.com.br`, não clique em `bancoseguro-login.net`.</li>
+            <li><strong>Cuidado com Promoções:</strong> Ofertas "boas demais para ser verdade" são quase sempre iscas para roubar dados.</li>
+        </ul>
+
+        <h3 id="jogos">4. Segurança em Jogos Online</h3>
+        <p>Proteja sua conta e seu inventário:</p>
+        <ul>
+            <li><strong>Links de "Skins" Grátis:</strong> Nunca faça login com sua conta Steam ou Epic em sites desconhecidos que prometem itens grátis.</li>
+            <li><strong>Downloads Suspeitos:</strong> "Hacks" ou "Cheats" para jogos costumam vir com Cavalos de Troia (Trojan) que roubam suas senhas do navegador.</li>
+        </ul>
+
+        <h3 id="criancas">5. Proteção para Crianças</h3>
+        <p>Dicas para pais e responsáveis:</p>
+        <ul>
+            <li><strong>Controle Parental:</strong> Use ferramentas como o Google Family Link para monitorar o tempo de tela e apps baixados.</li>
+            <li><strong>Educação:</strong> Ensine a criança a nunca compartilhar o nome da escola, endereço ou fotos do uniforme com "amigos" da internet.</li>
+            <li><strong>Câmera:</strong> Cubra a webcam do computador quando não estiver em uso.</li>
+        </ul>
+
+        <h3 id="dados">6. Higiene de Dados e Rastros</h3>
+        <ul>
+            <li><strong>Fotos de Documentos:</strong> Nunca publique fotos de passagens, crachás ou CNH.</li>
+            <li><strong>Check-in:</strong> Evite postar onde você está em tempo real; prefira postar quando já tiver saído do local.</li>
         </ul>
     </div>
 
@@ -55,10 +86,10 @@
 
             if (s.length === 0) { res.innerHTML = ""; }
             else if (s.length >= 10 && temNum && temLet && temSim) {
-                res.innerHTML = "Senha Forte! ✅ Sua conta está mais segura.";
+                res.innerHTML = "Senha Forte! ✅";
                 res.className = "forte";
             } else {
-                res.innerHTML = "Senha Fraca! ❌ Tente usar mais de 10 letras, números e símbolos (ex: @, #, $).";
+                res.innerHTML = "Senha Fraca! Use 10+ caracteres, números e símbolos. ❌";
                 res.className = "fraca";
             }
         }
