@@ -2,29 +2,31 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Portal de Conscientização Digital</title>
+    <title>Portal de Segurança Digital</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; line-height: 1.6; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
-        .seguro { color: green; font-weight: bold; } .fraco { color: red; font-weight: bold; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; }
+        .card { background: #2d2d2d; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); max-width: 600px; margin: auto; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; }
+        .forte { color: #00ff00; font-weight: bold; }
+        .fraca { color: #ff4444; font-weight: bold; }
+        h1, h3 { color: #00d4ff; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Proteção Digital: Família e Amigos</h1>
-        <p>Desenvolvido para ajudar na sua segurança online como parte do meu projeto de Cyber Defense.</p>
+        <p>Projeto de Cyber Defense para conscientização online.</p>
         
         <h3>1. Teste a Força da sua Senha</h3>
         <p><small>Atenção: Não use sua senha real, use uma similar para teste.</small></p>
         <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
         <p id="resultado"></p>
 
-        <h3>2. Dicas Práticas de Segurança</h3>
+        <h3>2. Dicas contra Engenharia Social</h3>
         <ul>
             <li><strong>MFA:</strong> Ative a verificação em duas etapas em tudo.</li>
-            <li><strong>Links:</strong> Se recebeu algo urgente ou bom demais no WhatsApp, é golpe.</li>
-            <li><strong>Senhas:</strong> Não repita a mesma senha do banco no Instagram.</li>
+            <li><strong>Links:</strong> Mensagens urgentes no WhatsApp geralmente são golpes.</li>
+            <li><strong>Redes Sociais:</strong> Nunca poste fotos de documentos ou crachás de trabalho.</li>
         </ul>
     </div>
 
@@ -32,9 +34,18 @@
         function verificar() {
             let s = document.getElementById('senha').value;
             let res = document.getElementById('resultado');
-            if(s.length === 0) { res.innerHTML = ""; }
-            else if(s.length > 10) { res.innerHTML = "Senha Forte! ✅"; res.className = "seguro"; }
-            else { res.innerHTML = "Senha Fraca! Use mais de 10 caracteres. ❌"; res.className = "fraco"; }
+            let temNumero = /[0-9]/.test(s);
+            let temLetra = /[a-zA-Z]/.test(s);
+            let temSimbolo = /[^A-Za-z0-9]/.test(s);
+
+            if (s.length === 0) { res.innerHTML = ""; }
+            else if (s.length > 10 && temNumero && temLetra && temSimbolo) {
+                res.innerHTML = "Senha Forte! ✅";
+                res.className = "forte";
+            } else {
+                res.innerHTML = "Senha Fraca! Use 10+ caracteres com números e símbolos. ❌";
+                res.className = "fraca";
+            }
         }
     </script>
 </body>
