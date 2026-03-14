@@ -7,7 +7,7 @@
         body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; margin-top: 80px; }
         nav { background: #333; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; text-align: center; border-bottom: 2px solid #00d4ff; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
         nav a { color: #00d4ff; text-decoration: none; margin: 5px 10px; font-weight: bold; font-size: 11px; text-transform: uppercase; }
-        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 700px; margin: 20px auto; }
+        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 750px; margin: 20px auto; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
         
         details { background: #383838; margin-bottom: 12px; border-radius: 5px; border-left: 4px solid #00d4ff; }
@@ -17,9 +17,8 @@
         .content { padding: 0 15px 15px 15px; }
 
         .caso-real { background: rgba(255, 68, 68, 0.1); border: 1px solid #ff4444; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.9em; }
-        .caso-real b { color: #ff4444; }
-        .forte { color: #00ff00; font-weight: bold; }
-        .fraca { color: #ff4444; font-weight: bold; }
+        .info-tecnica { background: rgba(0, 212, 255, 0.05); border: 1px solid #00d4ff; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.9em; color: #ccc; }
+        .btn-ajuda { color: #ff4444 !important; border: 1px solid #ff4444; padding: 2px 8px; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -27,84 +26,73 @@
     <nav>
         <a href="#teste">Senhas</a>
         <a href="#dicas">Social</a>
-        <a href="#phishing">Phishing</a>
         <a href="#jogos">Jogos</a>
         <a href="#criancas">Crianças</a>
-        <a href="#dados">Rastros</a>
+        <a href="#ajuda" class="btn-ajuda">ONDE BUSCAR AJUDA</a>
     </nav>
 
     <div class="card">
         <h1>Proteção Digital: Família e Amigos</h1>
-        <p>Clique nas setas para ver as dicas e <b>exemplos reais</b> de ataques.</p>
+        <p>Projeto de Cyber Defense focado em orientação e combate a crimes cibernéticos.</p>
         
         <details id="teste">
-            <summary>1. Teste a Força da sua Senha</summary>
+            <summary>1. Teste de Força de Senha</summary>
             <div class="content">
-                <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
+                <input type="password" id="senha" placeholder="Digite uma senha similar para teste" oninput="verificar()">
                 <p id="resultado"></p>
-                <div class="caso-real">
-                    <b>Caso Real:</b> Em grandes vazamentos de dados, senhas como "123456" ou "data de nascimento" são as primeiras a serem testadas por robôs, permitindo o roubo de contas em segundos.
-                </div>
+                <div class="info-tecnica"><b>Dica de Perícia:</b> Evite nomes de pets, datas de nascimento ou sequências simples. Criminosos usam "ataques de dicionário" para testar milhões de combinações por segundo.</div>
             </div>
         </details>
 
         <details id="dicas">
-            <summary>2. Engenharia Social (Golpe do WhatsApp)</summary>
+            <summary>2. Engenharia Social e Pix</summary>
             <div class="content">
                 <ul>
-                    <li>Ative o MFA (Verificação em duas etapas).</li>
-                    <li>Nunca envie códigos recebidos por SMS.</li>
+                    <li>Nunca forneça códigos de SMS para terceiros.</li>
+                    <li>Desconfie de chamadas de "Falso Gerente" ou "Suporte Técnico".</li>
                 </ul>
-                <div class="caso-real">
-                    <b>Caso Real:</b> O golpista finge ser um filho que trocou de número e pede dinheiro para uma "emergência". Sem o MFA, ele clona seu WhatsApp e pede dinheiro para todos os seus contatos.
-                </div>
-            </div>
-        </details>
-
-        <details id="phishing">
-            <summary>3. Phishing: Links Falsos de Bancos</summary>
-            <div class="content">
-                <ul>
-                    <li>Verifique o cadeado e o endereço da URL.</li>
-                </ul>
-                <div class="caso-real">
-                    <b>Caso Real:</b> Você recebe um e-mail dizendo que sua conta do banco será bloqueada. O link leva a um site idêntico ao do banco, onde você digita sua agência e senha, entregando tudo ao criminoso.
-                </div>
+                <div class="caso-real"><b>Exemplo:</b> Golpe da "Mão Fantasma", onde o criminoso te induz a baixar um app que dá controle total do seu celular a ele.</div>
             </div>
         </details>
 
         <details id="jogos">
-            <summary>4. Segurança em Jogos Online</summary>
+            <summary>3. Segurança em Jogos Online</summary>
             <div class="content">
-                <ul>
-                    <li>Não baixe "Hacks" ou "Skins grátis".</li>
-                </ul>
-                <div class="caso-real">
-                    <b>Caso Real:</b> Jogadores de Roblox ou Free Fire baixam programas para ter moedas infinitas. O programa instala um espião que rouba o cartão de crédito salvo no celular dos pais.
-                </div>
+                <p>Proteja seu inventário e dados bancários salvos.</p>
+                <div class="caso-real"><b>Caso Real:</b> Downloads de "Cheats" que na verdade são Cavalos de Troia (Trojans) projetados para roubar cookies de sessão do seu navegador.</div>
             </div>
         </details>
 
         <details id="criancas">
-            <summary>5. Proteção para Crianças</summary>
+            <summary>4. Proteção para Crianças e Adolescentes</summary>
             <div class="content">
                 <ul>
-                    <li>Ensine a não falar com estranhos.</li>
+                    <li><b>SaferNet:</b> Utilize canais de denúncia para crimes de ódio e abuso.</li>
+                    <li><b>Privacidade:</b> Ensine sobre os perigos de compartilhar a rotina escolar.</li>
                 </ul>
-                <div class="caso-real">
-                    <b>Caso Real:</b> Criminosos se fingem de crianças em chats de jogos para pedir fotos ou informações sobre onde a criança estuda e quando os pais não estão em casa.
-                </div>
             </div>
         </details>
 
-        <details id="dados">
-            <summary>6. Higiene de Dados e Rastros</summary>
+        <details id="ajuda">
+            <summary style="color: #ff4444;">🚨 ONDE BUSCAR AJUDA E DENUNCIAR</summary>
             <div class="content">
+                <h3>Divisão de Crimes Cibernéticos (DCCiber/DEIC - SP)</h3>
+                <p>Especializada em fraudes eletrônicas, invasão de dispositivos (Lei Carolina Dieckmann) e crimes contra a honra.</p>
+                
+                <div class="info-tecnica">
+                    <b>Endereço (SP):</b> Rua Brigadeiro Tobias, 527, 16º andar, Luz, São Paulo/SP.<br>
+                    <b>Atuação Federal:</b> A Polícia Federal (DCiber) atua em crimes de alta tecnologia e ataques federais.
+                </div>
+
+                <h3>Canais de Emergência:</h3>
                 <ul>
-                    <li>Cuidado com fotos de crachás e viagens.</li>
+                    <li><b>190:</b> Emergência (Ameaça imediata ou extorsão).</li>
+                    <li><b>Delegacia Eletrônica:</b> Faça o B.O. online no site oficial da Polícia Civil do seu estado.</li>
+                    <li><b>Disque 100:</b> Denúncias de crimes contra menores de idade.</li>
                 </ul>
-                <div class="caso-real">
-                    <b>Caso Real:</b> Uma pessoa posta foto da passagem de avião com o QR Code visível. Um criminoso usa o código para acessar a reserva, roubar milhas ou cancelar o voo de volta.
+
+                <div class="caso-real" style="border-color: #00d4ff;">
+                    <b>Dica de Segurança:</b> Se não houver uma delegacia especializada na sua cidade, procure a delegacia comum mais próxima. O importante é registrar o crime o quanto antes!
                 </div>
             </div>
         </details>
@@ -119,11 +107,9 @@
             let temSim = /[^A-Za-z0-9]/.test(s);
             if (s.length === 0) { res.innerHTML = ""; }
             else if (s.length >= 10 && temNum && temLet && temSim) {
-                res.innerHTML = "Senha Forte! ✅";
-                res.className = "forte";
+                res.innerHTML = "<span style='color:#00ff00'>Senha Forte! ✅</span>";
             } else {
-                res.innerHTML = "Senha Fraca! ❌";
-                res.className = "fraca";
+                res.innerHTML = "<span style='color:#ff4444'>Senha Fraca! ❌</span>";
             }
         }
     </script>
