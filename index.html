@@ -1,36 +1,188 @@
-<details id="ajuda">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Segurança Digital</title>
+    <style>
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; line-height: 1.6; margin-top: 100px; }
+        
+        /* Menu de Navegação Superior */
+        nav { background: #333; padding: 10px; position: fixed; top: 0; left: 0; width: 100%; text-align: center; border-bottom: 2px solid #00d4ff; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
+        nav a { color: #00d4ff; text-decoration: none; margin: 5px 10px; font-weight: bold; font-size: 11px; text-transform: uppercase; }
+        nav a:hover { color: #fff; }
+
+        .card { background: #2d2d2d; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); max-width: 800px; margin: 20px auto; }
+        
+        /* Estilo dos Tópicos Retráteis */
+        details { background: #383838; margin-bottom: 12px; border-radius: 5px; border-left: 4px solid #00d4ff; }
+        summary { padding: 15px; cursor: pointer; font-weight: bold; font-size: 17px; color: #00d4ff; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: "▼"; font-size: 12px; }
+        details[open] summary::after { content: "▲"; }
+        .content { padding: 0 15px 15px 15px; }
+
+        /* Elementos de Destaque */
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #444; background: #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        .caso-real { background: rgba(255, 68, 68, 0.1); border: 1px solid #ff4444; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.9em; }
+        .info-tecnica { background: rgba(0, 212, 255, 0.05); border: 1px solid #00d4ff; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.9em; color: #ccc; }
+        .aviso-urgente { background: rgba(255, 68, 68, 0.2); border: 2px solid #ff4444; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        
+        .forte { color: #00ff00; font-weight: bold; }
+        .fraca { color: #ff4444; font-weight: bold; }
+        .btn-ajuda { color: #ff4444 !important; border: 1px solid #ff4444; padding: 2px 8px; border-radius: 4px; }
+        h1 { color: #00d4ff; text-align: center; }
+        b { color: #00d4ff; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#teste">Senhas</a>
+        <a href="#social">Engenharia Social</a>
+        <a href="#phishing">Links Falsos</a>
+        <a href="#jogos">Games</a>
+        <a href="#criancas">Crianças</a>
+        <a href="#dados">Rastros</a>
+        <a href="#ajuda" class="btn-ajuda">SOCORRO / AJUDA</a>
+    </nav>
+
+    <div class="card">
+        <h1>Proteção Digital: Família e Amigos</h1>
+        <p style="text-align: center;">Clique nos tópicos abaixo para aprender a se proteger. <b>Conhecimento é a melhor defesa.</b></p>
+        
+        <details id="teste">
+            <summary>1. Teste de Força de Senha</summary>
+            <div class="content">
+                <p>Veja se sua senha resistiria a um ataque hacker. <br>
+                <small style="color: #ffcc00;">Atenção: Use uma senha parecida, nunca a sua real.</small></p>
+                <input type="password" id="senha" placeholder="Digite uma senha para teste" oninput="verificar()">
+                <p id="resultado"></p>
+                <div class="info-tecnica">
+                    <b>Dica de Defesa Cibernética:</b> Uma senha segura deve ter 10+ caracteres, misturando maiúsculas, minúsculas, números e símbolos (@, #, $).
+                </div>
+                <div class="caso-real">
+                    <b>Caso Real:</b> Em vazamentos de dados, senhas óbvias (datas, nomes de pets) são quebradas por robôs em segundos por "ataques de dicionário".
+                </div>
+            </div>
+        </details>
+
+        <details id="social">
+            <summary>2. Engenharia Social e Manipulação</summary>
+            <div class="content">
+                <ul>
+                    <li><b>MFA (Duas Etapas):</b> Ative no WhatsApp, Instagram e e-mail. É sua barreira principal.</li>
+                    <li><b>Urgência:</b> Golpistas pedem dinheiro fingindo emergência para você não ter tempo de pensar.</li>
+                    <li><b>IA e Voz:</b> Hoje, inteligências artificiais podem simular vozes de parentes em áudios falsos.</li>
+                </ul>
+                <div class="caso-real">
+                    <b>Caso Real:</b> O criminoso finge ser um filho que trocou de número. Se você passar o código de SMS, ele clona seu WhatsApp e engana seus contatos.
+                </div>
+            </div>
+        </details>
+
+        <details id="phishing">
+            <summary>3. Phishing: O Golpe do Link Falso</summary>
+            <div class="content">
+                <ul>
+                    <li><b>Links:</b> Verifique se o site é `banco.com.br` e não algo estranho como `banco-seguro.net`.</li>
+                    <li><b>Cadeado:</b> O site oficial deve possuir o HTTPS (cadeado fechado) no navegador.</li>
+                    <li><b>Ofertas:</b> iPhone por R$ 500 ou "limpe seu nome grátis" são quase sempre iscas.</li>
+                </ul>
+                <div class="caso-real">
+                    <b>Caso Real:</b> Você recebe um e-mail dizendo que sua conta será bloqueada. O link leva a um site idêntico ao oficial para roubar seus dados de login.
+                </div>
+            </div>
+        </details>
+
+        <details id="jogos">
+            <summary>4. Segurança em Jogos Online</summary>
+            <div class="content">
+                <ul>
+                    <li><b>Skins Grátis:</b> Nunca faça login com sua conta Steam ou Epic em sites desconhecidos.</li>
+                    <li><b>Hacks/Cheats:</b> Programas para trapacear costumam esconder vírus espiões.</li>
+                </ul>
+                <div class="caso-real">
+                    <b>Caso Real:</b> Downloads de "moedas infinitas" para jogos (Roblox, Free Fire) podem roubar cartões de crédito salvos no navegador dos pais.
+                </div>
+            </div>
+        </details>
+
+        <details id="criancas">
+            <summary>5. Proteção para Crianças e Adolescentes</summary>
+            <div class="content">
+                <ul>
+                    <li><b>Family Link:</b> Use apps de controle parental para monitorar tempo e downloads.</li>
+                    <li><b>Privacidade Física:</b> Nunca publique fotos que mostrem o uniforme da escola ou endereço.</li>
+                    <li><b>Webcams:</b> Cubra a câmera do computador quando não estiver em uso.</li>
+                </ul>
+                <div class="caso-real">
+                    <b>Caso Real:</b> Criminosos se fingem de crianças em chats de jogos para pedir fotos ou descobrir quando os pais não estão em casa.
+                </div>
+            </div>
+        </details>
+
+        <details id="dados">
+            <summary>6. Higiene de Dados e Rastros (OSINT)</summary>
+            <div class="content">
+                <ul>
+                    <li><b>Passagens/Ingressos:</b> Nunca poste fotos que mostrem o QR Code ou código de barras.</li>
+                    <li><b>Documentos:</b> Jamais publique fotos de CNH, RG ou Crachás de trabalho.</li>
+                    <li><b>Geolocalização:</b> Evite postar onde você está em tempo real (check-in).</li>
+                </ul>
+                <div class="caso-real">
+                    <b>Caso Real:</b> Um criminoso usa o QR Code de uma passagem postada no Instagram para acessar a reserva e roubar milhas ou cancelar o voo.
+                </div>
+            </div>
+        </details>
+
+        <details id="ajuda">
             <summary style="color: #ff4444;">🚨 ONDE BUSCAR AJUDA E DENUNCIAR</summary>
             <div class="content">
                 
-                <div style="background: rgba(255, 68, 68, 0.2); border: 2px solid #ff4444; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div class="aviso-urgente">
                     <h3 style="color: #ff4444; margin-top: 0; border: none;">⚠️ Está sofrendo chantagem com fotos?</h3>
-                    <p>Se alguém está te ameaçando divulgar fotos ou vídeos íntimos em troca de dinheiro ou mais fotos, <b>PARE AGORA</b>. Você não está sozinho e a culpa não é sua.</p>
+                    <p>Se alguém te ameaça divulgar fotos íntimas em troca de dinheiro ou favores, <b>PARE AGORA</b>. Você não está sozinho e a culpa não é sua.</p>
                     <ul>
-                        <li><b>Não entre em pânico:</b> O chantagista quer que você se sinta isolado para te controlar.</li>
-                        <li><b>Não pague e não envie mais nada:</b> Ceder só faz as ameaças continuarem.</li>
-                        <li><b>Fale com alguém:</b> Procure seus pais, um professor ou um adulto de confiança imediatamente. Eles são sua rede de proteção.</li>
-                        <li><b>Guie-se pelas provas:</b> Não apague as mensagens ou fotos. Tire "prints" (capturas de tela) de tudo. Isso é prova para a polícia.</li>
+                        <li><b>Não entre em pânico:</b> O chantagista usa seu medo para te controlar.</li>
+                        <li><b>Não pague nada:</b> Ceder faz as ameaças aumentarem.</li>
+                        <li><b>Fale com um adulto:</b> Conte para seus pais ou responsáveis imediatamente. Eles são sua rede de apoio.</li>
+                        <li><b>Guarde Provas:</b> Tire prints de todas as conversas e ameaças antes de bloquear.</li>
                     </ul>
                 </div>
 
                 <h3>Divisão de Crimes Cibernéticos (DCCiber/DEIC - SP)</h3>
-                <p>Especializada em fraudes, invasão de dispositivos e <b>Extorsão Sexual</b>.</p>
+                <p>Especializada em fraudes eletrônicas, invasão (<b>Lei Carolina Dieckmann</b>) e crimes contra a honra.</p>
                 
                 <div class="info-tecnica">
-                    <b>Endereço Físico (SP):</b> Rua Brigadeiro Tobias, 527, 16º andar, Luz, São Paulo/SP.<br>
-                    <b>Atuação:</b> Investiga crimes previstos na Lei Carolina Dieckmann e o crime de Extorsão (Art. 158 do CP).
+                    <b>Endereço (SP):</b> Rua Brigadeiro Tobias, 527, 16º andar, Luz, São Paulo/SP.<br>
+                    <b>Atuação Federal:</b> A Polícia Federal (DCiber) atua em ataques de alta tecnologia.
                 </div>
 
-                <h3>Canais de Emergência e Denúncia:</h3>
+                <h3>Canais de Emergência:</h3>
                 <ul>
-                    <li><b>190 (Polícia Militar):</b> Para ameaças graves e imediatas.</li>
-                    <li><b>Delegacia Eletrônica:</b> Registre o Boletim de Ocorrência online.</li>
-                    <li><b>SaferNet (helpline.org.br):</b> Ajuda especializada para vítimas de crimes de ódio ou vazamento de imagens.</li>
-                    <li><b>Disque 100:</b> Direitos Humanos e proteção a menores.</li>
+                    <li><b>190 (Polícia Militar):</b> Para ameaças graves ou extorsão imediata.</li>
+                    <li><b>Delegacia Eletrônica:</b> Faça o B.O. online no site oficial da Polícia Civil.</li>
+                    <li><b>SaferNet (helpline.org.br):</b> Ajuda especializada para vítimas de crimes digitais.</li>
+                    <li><b>Disque 100:</b> Proteção a menores de idade.</li>
                 </ul>
-
-                <div class="caso-real" style="border-color: #00d4ff;">
-                    <b>Lembre-se:</b> A polícia tem tecnologia para rastrear esses criminosos mesmo que eles usem perfis falsos. O primeiro passo para parar o pesadelo é pedir ajuda!
-                </div>
             </div>
         </details>
+    </div>
+
+    <script>
+        function verificar() {
+            let s = document.getElementById('senha').value;
+            let res = document.getElementById('resultado');
+            let temNum = /[0-9]/.test(s);
+            let temLet = /[a-zA-Z]/.test(s);
+            let temSim = /[^A-Za-z0-9]/.test(s);
+            if (s.length === 0) { res.innerHTML = ""; }
+            else if (s.length >= 10 && temNum && temLet && temSim) {
+                res.innerHTML = "<span class='forte'>Senha Forte! ✅</span>";
+            } else {
+                res.innerHTML = "<span class='fraca'>Senha Fraca! ❌</span>";
+            }
+        }
+    </script>
+</body>
+</html>
